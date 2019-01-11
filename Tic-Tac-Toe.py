@@ -123,13 +123,19 @@ if __name__ == '__main__':
     a=np.array([[1,2,1],
                 [2,2,1],
                 [1,2,2]])
+    move = [0,0]
     g = Game
     state = [a, 0]
     for i in range(0,100):
         g.restart(g, state)
         while(g.check_winner(g, state) == 0):
-            m = g.legal_plays(g, state)
-            move = MonteCarloTreeSearch(g, state, m)
+            if(g.current_player(g, state) == 1):
+                m = g.legal_plays(g, state)
+                move = MonteCarloTreeSearch(g, state, m)
+
+            else:
+                move = [random.randrange(0, 3), random.randrange(0, 3)]
+    
             state = g.next_state(g, state, move)
         print("Player", g.check_winner(g,state), "Wins!")
         print(state)
