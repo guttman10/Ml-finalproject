@@ -22,6 +22,8 @@ def MonteCarloTreeSearch (g,curr_state,move_list):
 
             if( g.check_winner(g, test_state) == 1 ):
                 move_val += 1
+            if( g.check_winner(g, test_state) == 2 ):
+                move_val -= 1
 
         if(move_val > best_move):
             second_best = best_move
@@ -125,6 +127,8 @@ if __name__ == '__main__':
                 [1,2,2]])
     move = [0,0]
     g = Game
+    p1_score = 0
+    p2_score = 0
     state = [a, 0]
     for i in range(0,100):
         g.restart(g, state)
@@ -135,11 +139,17 @@ if __name__ == '__main__':
 
             else:
                 move = [random.randrange(0, 3), random.randrange(0, 3)]
-    
+
             state = g.next_state(g, state, move)
+            if( g.check_winner(g, state) == 1 ):
+                p1_score += 1
+            if( g.check_winner(g, state) == 2 ):
+                p2_score += 1
+
         print("Player", g.check_winner(g,state), "Wins!")
         print(state)
 
+    print(p1_score/100)
 
 
 
