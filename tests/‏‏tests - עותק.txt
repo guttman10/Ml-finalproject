@@ -1,0 +1,10 @@
+Data for:100
+Win %0.88 Lose %0.08 Tie %0.04
+Data for:200
+Win %0.85 Lose %0.11 Tie %0.04
+Data for:300
+Win %0.79 Lose %0.17 Tie %0.03
+Data for:400
+Win %0.82 Lose %0.09 Tie %0.09
+Data for:500
+Win %0.8 Lose %0.14 Tie %0.06
